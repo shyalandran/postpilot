@@ -25,3 +25,12 @@ async function generatePost() {
         document.getElementById("result-text").innerText = "Something went wrong. Try again!";
     }
 }
+
+function copyPost() {
+    const text = document.getElementById("result-text").innerText;
+    navigator.clipboard.writeText(text);
+    document.getElementById("copy-btn").innerText = "Copied! ✅";
+    setTimeout(() => {
+        document.getElementById("copy-btn").innerText = "Copy Post 📋";
+    }, 2000);
+}
