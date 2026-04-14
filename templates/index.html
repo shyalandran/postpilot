@@ -6,24 +6,36 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>✈️ PostPilot</h1>
-        <p>Paste your content, pick a platform, generate your post.</p>
+    <div class="page">
+        <div class="header">
+            <div class="logo">Post<span>Pilot</span></div>
+            <div class="tagline">Turn any content into a perfect social media post</div>
+        </div>
 
-        <textarea id="content" placeholder="Paste your content here..."></textarea>
+        <div class="card">
+            <span class="label">Your content</span>
+            <textarea id="content" placeholder="Paste anything — a note, achievement, article, idea..."></textarea>
 
-        <select id="platform">
-            <option value="linkedin">LinkedIn</option>
-            <option value="twitter">Twitter/X</option>
-            <option value="instagram">Instagram</option>
-        </select>
+            <span class="label" style="margin-top: 1rem;">Platform</span>
+            <div class="platform-row">
+                <div class="platform-btn active" onclick="selectPlatform(this, 'linkedin')">LinkedIn</div>
+                <div class="platform-btn" onclick="selectPlatform(this, 'twitter')">Twitter / X</div>
+                <div class="platform-btn" onclick="selectPlatform(this, 'instagram')">Instagram</div>
+            </div>
 
-        <button onclick="generatePost()">Generate Post ✨</button>
+            <button class="generate-btn" onclick="generatePost()">Generate post</button>
+        </div>
 
-        <div id="output" class="output-box" style="display:none;">
-            <h3>Your Generated Post:</h3>
-            <p id="result-text"></p>
-            <button onclick="copyPost()" id="copy-btn">Copy Post 📋</button>
+        <div class="output-card" id="output" style="display:none;">
+            <div class="output-header">
+                <span class="output-label">Generated post</span>
+                <span class="platform-badge" id="platform-badge">LinkedIn</span>
+            </div>
+            <div class="output-text" id="result-text"></div>
+            <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                <button class="copy-btn" onclick="copyPost()" id="copy-btn" style="flex: 1;">Copy post</button>
+                <button class="copy-btn" onclick="generatePost()" style="flex: 1;">Regenerate</button>
+            </div>
         </div>
     </div>
     <script src="/static/script.js"></script>
